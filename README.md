@@ -1,5 +1,5 @@
 # Operation Configuration setup tool
-This tool will grab a file called op.cfg from an s3 bucket specified in the environment variable OP_CONFIG_BUCKET and place it in the home directory of the repo. 
+This tool will grab a file specified in environment variable OP_CONFIG_FILE or op.cfg by default from an s3 bucket specified in the environment variable OP_CONFIG_BUCKET and place it in the home directory of the repo. Whatever credentials the aws client will decide to use by default must have access to the specified bucket. This can be achieved, for example, by running this on an EC2 instance whose role has access to the bucket, or in a container on that instance. 
 Running 
 ```sh
 source setup.sh
