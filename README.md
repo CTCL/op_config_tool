@@ -1,5 +1,10 @@
 # Operation Configuration setup tool
-This tool will grab a file called op.cfg from an s3 bucket specified in the environment variable OP_CONFIG_BUCKET and place it in the home directory of the repo. It creates an alias "opc" that can be called as follows:
+This tool will grab a file called op.cfg from an s3 bucket specified in the environment variable OP_CONFIG_BUCKET and place it in the home directory of the repo. 
+Running 
+```sh
+source setup.sh
+```
+creates an alias "opc" that can be called as follows:
 ```sh
 opc <config section> <section entry>
 ```
