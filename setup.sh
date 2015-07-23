@@ -45,11 +45,13 @@ lsb_dist="$(echo "$lsb_dist" | tr '[:upper:]' '[:lower:]')"
 # install aws
 case "$lsb_dist" in
   amzn|fedora|centos)
-    yum -y install aws-cli
+    yum -y install python-pip
+    pip install awscli
     ;;
   ubuntu|debian)
     apt-get update
-    apt-get install -y aws-cli
+    apt-get install -y python-pip
+    pip install awscli
     ;;
 esac
 
