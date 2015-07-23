@@ -11,6 +11,7 @@ def get(entry, section='op', op_config_file=DEFAULT_OP_CONFIG_FILE):
     """
     parse the provided op config value out of the provided op config file
     """
+    entry = entry.lower()
     op_config = ConfigParser()
     op_config.read([op_config_file])
     if op_config.has_section(section):
