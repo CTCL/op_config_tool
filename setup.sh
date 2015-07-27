@@ -54,5 +54,3 @@ case "$lsb_dist" in
     pip install awscli
     ;;
 esac
-
-chmod 755 op_config_tool.py
