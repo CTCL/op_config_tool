@@ -1,10 +1,6 @@
 #!/bin/bash
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-chmod 755 $DIR/op_config_tool.py
-aws s3 cp s3://${OP_CONFIG_BUCKET}/${OP_CONFIG_FILE:-op.cfg} $DIR/op.cfg
-alias opc="$DIR/op_config_tool.py $DIR/op.cfg"
-if [ $PYTHONPATH ]
+$(aws s3 cp s3://${OP_CONFIG_BUCKET}/${OP_CONFIG_FILE:-op.cfg} $OP_CONFIG_PATH/op.cfg)
+if [ ! -a $OP_CONFIG_PATH/op.cfg ]
 then
-  export PYTHONPATH=:$PYTHONPATH
+  echo '[op]' > $OP_CONFIG_PATH/op.cfg
 fi
-export PYTHONPATH=$DIR$PYTHONPATH

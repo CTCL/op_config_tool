@@ -1,3 +1,4 @@
+#!/bin/bash
 # perform some very rudimentary platform detection (taken from docker install script)
 command_exists() {
   command -v "$@" > /dev/null 2>&1
@@ -54,3 +55,15 @@ case "$lsb_dist" in
     pip install awscli
     ;;
 esac
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+chmod 755 $DIR/op_config_tool.py
+cat $OPS >> ~/.bashrc <<SETOP
+OP_CONFIG_PATH=$DIR
+if [ \$PYTHONPATH ]
+then
+    export PYTHONPATH=:\$PYTHONPATH
+fi
+export PYTHONPATH=$DIR\$PYTHONPATH
+alias opc="$DIR/op_config_tool.py $DIR/op.cfg"
+SETOP
