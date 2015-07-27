@@ -60,10 +60,8 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 chmod 755 $DIR/op_config_tool.py
 cat $OPS >> ~/.bashrc <<SETOP
 OP_CONFIG_PATH=$DIR
-if [ \$PYTHONPATH ]
-then
-    export PYTHONPATH=:\$PYTHONPATH
-fi
-export PYTHONPATH=$DIR\$PYTHONPATH
 alias opc="$DIR/op_config_tool.py $DIR/op.cfg"
 SETOP
+PYTHON_SITE_DIR=$(python -c 'import site; print site.USER_SITE')
+mkdir -p $PYTHON_SITE_DIR
+echo $DIR > $PYTHON_SITE_DIR/op_config.pth
