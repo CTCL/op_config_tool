@@ -55,7 +55,4 @@ case "$lsb_dist" in
     ;;
 esac
 
-aws s3 cp s3://${OP_CONFIG_BUCKET}/${OP_CONFIG_FILE:-op.cfg} ./op.cfg
-alias opc="$(pwd)/op_config_tool.py $(pwd)/op.cfg"
 chmod 755 op_config_tool.py
-export PYTHONPATH=$(pwd):$PYTHONPATH
