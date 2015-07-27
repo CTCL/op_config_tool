@@ -65,3 +65,4 @@ SETOP
 PYTHON_SITE_DIR=$(python -c 'import site; print site.USER_SITE')
 mkdir -p $PYTHON_SITE_DIR
 echo $DIR > $PYTHON_SITE_DIR/op_config.pth
+source ~/.bashrc
