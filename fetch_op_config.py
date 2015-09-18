@@ -2,7 +2,9 @@
 import sys, os
 from argparse import ArgumentParser
 from subprocess import call
-def run(remote_file, op_config_bucket, local_file):
+def run(remote_file=os.getenv("OP_CONFIG_FILE", "op.cfg"),
+        op_config_bucket=os.getenv("OP_CONFIG_FILE", "op.cfg"),
+        local_file='op.cfg'):
     location = os.path.dirname(os.path.abspath(__file__))
     op_config_file_path = os.path.join(location, local_file)
     call(["aws", "s3", "cp", "s3://{bucket}/{remote_file}".format(
