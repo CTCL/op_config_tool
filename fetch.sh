@@ -1,5 +1,5 @@
 #!/bin/bash
-aws s3 cp s3://${OP_CONFIG_BUCKET}/${OP_CONFIG_FILE:-op.cfg} $OP_CONFIG_PATH/op.cfg
+python $OP_CONFIG_PATH/fetch_op_config.py ${OP_CONFIG_FILE:-op.cfg}
 if ! [ -a $OP_CONFIG_PATH/op.cfg ]
 then
   echo 'could not get op config file'
