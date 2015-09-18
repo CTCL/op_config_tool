@@ -1,0 +1,2 @@
+#!/bin/bash
+python $OP_CONFIG_PATH/op_config_tool.py ${3-$OP_CONFIG_PATH/op.cfg} $1 $2
