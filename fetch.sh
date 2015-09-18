@@ -1,4 +1,5 @@
 #!/bin/bash
+. ~/.opc
 python $OP_CONFIG_PATH/fetch_op_config.py $@
 if ! [ -a $OP_CONFIG_PATH/op.cfg ]
 then

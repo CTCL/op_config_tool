@@ -10,7 +10,7 @@ def run(remote_file, op_config_bucket, local_file):
     if not os.path.isfile(op_config_file_path):
         sys.stderr.write(
             'could not download op config {remote_file} from {bucket}'.format(
-                remote_file=remote_file, bucket=bucket))
+                remote_file=remote_file, bucket=op_config_bucket))
 
 if __name__ == "__main__":
     parser = ArgumentParser()
